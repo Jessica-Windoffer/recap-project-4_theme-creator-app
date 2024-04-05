@@ -1,0 +1,19 @@
+.theme-form {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.color-inputs {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  gap: 10px;
+}
+
+.button-add-theme {
+  margin-top: 0.5rem;
+  width: 30%;
+}
