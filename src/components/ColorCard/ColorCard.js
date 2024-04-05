@@ -1,4 +1,4 @@
-import "./colorCard.css";
+import "./ColorCard.css";
 
 export default function ColorCard({ color }) {
   return (
