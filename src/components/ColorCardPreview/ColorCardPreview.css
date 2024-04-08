@@ -5,12 +5,11 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 5px;
   overflow: hidden;
-  border-radius: 16px;
   list-style: none;
 }
 
 .theme-preview__color {
   width: 100%;
   aspect-ratio: 3 / 2;
-  border-radius: 16px;
+  border-radius: 8px;
 }
