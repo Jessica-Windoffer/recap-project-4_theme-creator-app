@@ -10,11 +10,6 @@ import { v4 as uuid } from "uuid";
 function App() {
   const [themes, setThemes] = useState(initialThemes);
 
-  // function handleAddTheme(newTheme) {
-  //   const newThemeWithId = { ...newTheme, id: uuid() };
-  //   setThemes([newThemeWithId, ...themes]);
-  // }
-
   function handleAddTheme(newTheme) {
     setThemes([
       {
@@ -39,6 +34,12 @@ function App() {
     ]);
   }
 
+  function handleDeleteTheme(id) {
+    const modifiedThemes = themes.filter((theme) => theme.id !== id);
+
+    setThemes(modifiedThemes);
+  }
+
   return (
     <div className="app">
       <Header />
@@ -48,7 +49,11 @@ function App() {
         <ul className="theme-list">
           {themes.map((theme) => (
             <li key={theme.id}>
-              <Theme name={theme.name} colors={theme.colors} />
+              <Theme
+                name={theme.name}
+                colors={theme.colors}
+                onDelete={() => handleDeleteTheme(theme.id)}
+              />
             </li>
           ))}
         </ul>

@@ -3,7 +3,7 @@ import "./Theme.css";
 import ColorCardDetail from "../ColorCardDetail/ColorCardDetail";
 import ColorCardPreview from "../ColorCardPreview/ColorCardPreview";
 
-export default function Theme({ name, colors }) {
+export default function Theme({ name, colors, onDelete }) {
   const [showDetails, setShowDetails] = useState(false);
 
   function toggleDetails() {
@@ -47,7 +47,7 @@ export default function Theme({ name, colors }) {
         )}
       </button>
       {showDetails ? (
-        <ColorCardDetail colors={colors} />
+        <ColorCardDetail colors={colors} onDelete={onDelete} />
       ) : (
         <ColorCardPreview colors={colors} />
       )}
