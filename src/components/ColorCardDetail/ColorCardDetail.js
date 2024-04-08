@@ -9,6 +9,9 @@ export default function ColorCardDetail({ colors }) {
           <ColorCard color={color} />
         </li>
       ))}
+      <button className="color-list__delete-button" type="submit">
+        Delete
+      </button>
     </ul>
   );
 }

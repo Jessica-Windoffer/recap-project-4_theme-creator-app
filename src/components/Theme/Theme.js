@@ -13,7 +13,7 @@ export default function Theme({ name, colors }) {
   return (
     <section className="theme">
       <button className="theme__toggle-details-button" onClick={toggleDetails}>
-        <h2 className="theme__title">{name}</h2>
+        <h2>{name}</h2>
         {showDetails ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
