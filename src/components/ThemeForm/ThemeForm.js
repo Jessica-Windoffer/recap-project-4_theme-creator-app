@@ -1,69 +1,137 @@
 import "./ThemeForm.css";
-
-const initalTheme = {
-  name: "",
-  colors: [
-    { role: "primary", value: "#000000" },
-    { role: "secondary", value: "#000000" },
-    { role: "surface", value: "#000000" },
-    { role: "surface-on", value: "#000000" },
-  ],
-};
+import { useState } from "react";
 
 export default function ThemeForm({ onSubmit }) {
-  const initialData = initalTheme;
+  const [primaryColor, setPrimaryColor] = useState("#aeaeae");
+  const [secondaryColor, setSecondaryColor] = useState("#aeaeae");
+  const [surfaceColor, setSurfaceColor] = useState("#aeaeae");
+  const [surfaceOnColor, setSurfaceOnColor] = useState("#aeaeae");
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(handleSubmit, event);
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-
-    const newTheme = {
-      name: data.name,
-      colors: [
-        {
-          role: "primary",
-          value: data.primary,
-        },
-        {
-          role: "secondary",
-          value: data.secondary,
-        },
-        {
-          role: "surface",
-          value: data.surface,
-        },
-        {
-          role: "surface-on",
-          value: data["surface-on"],
-        },
-      ],
-    };
-
-    onSubmit(newTheme);
+    onSubmit(data);
+    setPrimaryColor("#aeaeae");
+    setSecondaryColor("#aeaeae");
+    setSurfaceColor("#aeaeae");
+    setSurfaceOnColor("#aeaeae");
+    event.target.reset();
   }
 
   return (
-    <form onSubmit={handleSubmit} className="theme-form">
+    <form className="theme-form" onSubmit={handleSubmit}>
       <h2>Add a new Theme</h2>
       <input
         type="text"
         placeholder="Name of Theme"
-        defaultValue={initialData.name}
+        className="name-input"
         name="name"
         required
-      ></input>
-      <section className="color-inputs ">
-        {initialData.colors.map((color) => (
-          <input
-            key={color.role}
-            type="color"
-            name={color.role}
-            defaultValue={color.value}
-          />
-        ))}
-      </section>
+      />
+      <div className="color-inputs">
+        <div className="color_box">
+          <div
+            className="color_box_set"
+            style={{ backgroundColor: primaryColor }}
+          ></div>
+          <div className="color_box_insert">
+            <label className="label_color_name" htmlFor="primaryColor">
+              Primary
+            </label>
+            <input
+              name="primaryColor"
+              type="color"
+              placeholder="#fffff"
+              onChange={(e) => setPrimaryColor(e.target.value)}
+              defaultValue="#ffffff"
+            />
+            <input
+              name="primaryColor"
+              type="text"
+              className="color_box_insert_hexcode_field"
+              placeholder={primaryColor}
+              onChange={(e) => setPrimaryColor(e.target.value)}
+              value={primaryColor}
+            />
+          </div>
+        </div>
+        <div className="color_box">
+          <div
+            className="color_box_set"
+            style={{ backgroundColor: secondaryColor }}
+          ></div>
+          <div className="color_box_insert">
+            <label className="label_color_name" htmlFor="secondaryColor">
+              Secondary
+            </label>
+            <input
+              name="secondaryColor"
+              type="color"
+              placeholder="#fffff"
+              onChange={(e) => setSecondaryColor(e.target.value)}
+              defaultValue="#ffffff"
+            />
+            <input
+              name="secondaryColor"
+              type="text"
+              placeholder={secondaryColor}
+              onChange={(e) => setSecondaryColor(e.target.value)}
+              value={secondaryColor}
+            />
+          </div>
+        </div>
+        <div className="color_box">
+          <div
+            className="color_box_set"
+            style={{ backgroundColor: surfaceColor }}
+          ></div>
+          <div className="color_box_insert">
+            <label className="label_color_name" htmlFor="surfaceColor">
+              Surface
+            </label>
+            <input
+              name="surfaceColor"
+              type="color"
+              placeholder="#fffff"
+              onChange={(e) => setSurfaceColor(e.target.value)}
+              defaultValue="#ffffff"
+            />
+            <input
+              name="surfaceColor"
+              type="text"
+              placeholder={surfaceColor}
+              onChange={(e) => setSurfaceColor(e.target.value)}
+              value={surfaceColor}
+            />
+          </div>
+        </div>
+        <div className="color_box">
+          <div
+            className="color_box_set"
+            style={{ backgroundColor: surfaceOnColor }}
+          ></div>
+          <div className="color_box_insert">
+            <label className="label_color_name" htmlFor="surfaceOnColor">
+              Surface-On
+            </label>
+            <input
+              name="surfaceOnColor"
+              type="color"
+              placeholder="#fffff"
+              onChange={(e) => setSurfaceOnColor(e.target.value)}
+              defaultValue="#ffffff"
+            />
+            <input
+              name="surfaceOnColor"
+              type="text"
+              placeholder={surfaceOnColor}
+              onChange={(e) => setSurfaceOnColor(e.target.value)}
+              value={surfaceOnColor}
+            />
+          </div>
+        </div>
+      </div>
       <button type="submit" className="button-add-theme">
         Add Theme
       </button>

@@ -1,19 +1,85 @@
 .theme-form {
-  margin-top: 1rem;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.name-input {
+  border-radius: 5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-color: rgb(132, 132, 132);
+  border-style: solid;
+  border-width: 1px;
 }
 
 .color-inputs {
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
-  gap: 10px;
+  gap: 5px;
+}
+
+.color_box {
+  width: 175px;
+  height: 200px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  border: none;
+}
+
+.color_box input {
+  border: none;
+  background-color: #ededed;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.color_box_set {
+  width: 100%;
+  height: 100%;
+  background-color: #5855e4;
+}
+
+.color_box_insert {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(215, 214, 214);
+  margin: 0px;
+  padding: 10px;
+  width: 100%;
+}
+
+.color_box_insert_hexcode_field {
+  pointer-events: none;
+}
+
+.label_color_name {
+  font-size: 1rem;
+  align-self: center;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .button-add-theme {
   margin-top: 0.5rem;
-  width: 30%;
+  width: 100%;
+  border-radius: 5px;
+  border-color: #ffd501;
+  border-style: solid;
+  background-color: #ffd501;
+  font-weight: bold;
+  padding: 7px 0 7px 0;
 }

@@ -10,9 +10,33 @@ import { v4 as uuid } from "uuid";
 function App() {
   const [themes, setThemes] = useState(initialThemes);
 
+  // function handleAddTheme(newTheme) {
+  //   const newThemeWithId = { ...newTheme, id: uuid() };
+  //   setThemes([newThemeWithId, ...themes]);
+  // }
+
   function handleAddTheme(newTheme) {
-    const newThemeWithId = { ...newTheme, id: uuid() };
-    setThemes([newThemeWithId, ...themes]);
+    setThemes([
+      {
+        id: uuid(),
+        name: newTheme.name,
+        colors: [
+          { role: "primary", value: newTheme.primaryColor, name: "default" },
+          {
+            role: "secondary",
+            value: newTheme.secondaryColor,
+            name: "default",
+          },
+          { role: "surface", value: newTheme.surfaceColor, name: "default" },
+          {
+            role: "surface-on",
+            value: newTheme.surfaceOnColor,
+            name: "default",
+          },
+        ],
+      },
+      ...themes,
+    ]);
   }
 
   return (
