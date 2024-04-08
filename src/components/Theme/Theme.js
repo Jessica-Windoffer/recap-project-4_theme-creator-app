@@ -3,7 +3,7 @@ import "./Theme.css";
 import ColorCardDetail from "../ColorCardDetail/ColorCardDetail";
 import ColorCardPreview from "../ColorCardPreview/ColorCardPreview";
 
-export default function Theme({ name, colors }) {
+export default function Theme({ name, colors, onDelete }) {
   const [showDetails, setShowDetails] = useState(false);
 
   function toggleDetails() {
@@ -13,7 +13,7 @@ export default function Theme({ name, colors }) {
   return (
     <section className="theme">
       <button className="theme__toggle-details-button" onClick={toggleDetails}>
-        <h2 className="theme__title">{name}</h2>
+        <h2>{name}</h2>
         {showDetails ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ export default function Theme({ name, colors }) {
         )}
       </button>
       {showDetails ? (
-        <ColorCardDetail colors={colors} />
+        <ColorCardDetail colors={colors} onDelete={onDelete} />
       ) : (
         <ColorCardPreview colors={colors} />
       )}
